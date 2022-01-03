@@ -10,6 +10,7 @@ import AddProduct from './Components/Dashboard/Admin/AddProduct/AddProduct';
 import Products from './Components/Home/HomeNastedRoutes/TalkWebShop/Products/Products';
 import ManageAllProducts from './Components/Dashboard/Admin/ManageAllProducts/ManageAllProducts';
 import ManageAllPostsByAdmin from './Components/Dashboard/Admin/ManageAllPostsByAdmin/ManageAllPostsByAdmin';
+import { Account } from './Components/Home/Account/Account';
 
 
 
@@ -28,7 +29,7 @@ function App() {
           <Route path="addproduct" element={<AddProduct></AddProduct>} />
           <Route path="manageProducts" element={<ManageAllProducts></ManageAllProducts>} />
           <Route path="managePosts" element={<ManageAllPostsByAdmin></ManageAllPostsByAdmin>} />
-
+          <Route path="account" element={ <Account /> } />
 
            {/*  <Route path="//" element={<Posts></Posts>} />
             <Route path="//posts" element={<Posts></Posts>} />           

@@ -36,7 +36,7 @@ const Navigation = () => {
                 <Nav.Link as={Link} to="/manageProducts">Manage Products</Nav.Link>
                 <Nav.Link as={Link} to="/managePosts">Manage Posts</Nav.Link>
               
-                <Nav.Link  >Log in</Nav.Link>
+                <Nav.Link>Log in</Nav.Link>
                 <Nav.Link  >Create Account</Nav.Link>
                 <NavDropdown title="Display Name" id="collasible-nav-dropdown">
                     <NavDropdown.Item >display name and email</NavDropdown.Item>
