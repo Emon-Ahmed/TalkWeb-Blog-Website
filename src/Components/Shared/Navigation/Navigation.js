@@ -30,11 +30,7 @@ const Navigation = () => {
                 
                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
                 <Nav.Link as={Link} to="/posts">Blog</Nav.Link>
-                <Nav.Link as={Link} to="/addPost">Create Post</Nav.Link>
-                <Nav.Link as={Link} to="/addProduct">Add Product</Nav.Link>
                 <Nav.Link as={Link} to="/products">Shop</Nav.Link>
-                <Nav.Link as={Link} to="/manageProducts">Manage Products</Nav.Link>
-                <Nav.Link as={Link} to="/managePosts">Manage Posts</Nav.Link>
               
                 <Nav.Link>Log in</Nav.Link>
                 <Nav.Link  >Create Account</Nav.Link>

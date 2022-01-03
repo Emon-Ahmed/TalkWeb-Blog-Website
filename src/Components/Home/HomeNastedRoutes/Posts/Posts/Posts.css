@@ -1,0 +1,23 @@
+.aside-bg{
+    background-color: #EAEDED;
+}
+.link-style{
+   color: gray;
+   text-decoration: none;
+   font-size: 20px;
+   padding: 5px;
+   margin-bottom: 6px;
+  
+
+}
+p:hover{
+    background-color: rgb(181, 235, 218);  
+   border-radius: 5px;
+}
+.link-style:hover{
+   color: red;
+   text-decoration: underline;
+   margin-bottom: 6px;
+   font-size: 20px;
+   
+}

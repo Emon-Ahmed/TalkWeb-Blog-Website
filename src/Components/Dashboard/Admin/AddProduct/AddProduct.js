@@ -31,7 +31,7 @@ const AddProduct = () => {
           {/* add Product form */}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("picture")} placeholder="bike image link"/>
-                <input {...register("name", { required: true, maxLength: 40 })} placeholder="Bike Name" />
+                <input {...register("name", { required: true, maxLength: 40 })} placeholder="Products Name" />
                 <input type="number" {...register("price")} placeholder="Enter Price"/>
                 <input {...register("company")} placeholder="Company Name" />
                 <textarea {...register("about")} placeholder="Products description"/>              

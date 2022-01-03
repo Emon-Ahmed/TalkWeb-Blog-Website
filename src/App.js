@@ -10,9 +10,15 @@ import AddProduct from './Components/Dashboard/Admin/AddProduct/AddProduct';
 import Products from './Components/Home/HomeNastedRoutes/TalkWebShop/Products/Products';
 import ManageAllProducts from './Components/Dashboard/Admin/ManageAllProducts/ManageAllProducts';
 import ManageAllPostsByAdmin from './Components/Dashboard/Admin/ManageAllPostsByAdmin/ManageAllPostsByAdmin';
-import { Account } from './Components/Home/Account/Account';
 
-
+import Purchase from './Components/Home/HomeNastedRoutes/TalkWebShop/Purchase/Purchase';
+import ManageAllOrders from './Components/Dashboard/Admin/ManageAllOrders/ManageAllOrders';
+import Sponsors from './Components/Home/Sponsors/Sponsors';
+import TermsOfUse from './Components/Home/TermsOfUse/TermsOfUse';
+import PrivacyPolicy from './Components/Home/PrivacyPolicy/PrivacyPolicy';
+import Faq from './Components/Home/Faq/Faq';
+import About from './Components/Home/AboutAndContact/About/About';
+import Contact from './Components/Home/AboutAndContact/Contact/Contact';
 
 function App() {
   return (
@@ -29,18 +35,22 @@ function App() {
           <Route path="addproduct" element={<AddProduct></AddProduct>} />
           <Route path="manageProducts" element={<ManageAllProducts></ManageAllProducts>} />
           <Route path="managePosts" element={<ManageAllPostsByAdmin></ManageAllPostsByAdmin>} />
-          <Route path="account" element={ <Account /> } />
-
+          <Route path="purchase/:purchaseId" element={<Purchase></Purchase>} />
+          <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>} />
+          <Route path="faq" element={<Faq></Faq>} />
+          <Route path="privacyPolicy" element={<PrivacyPolicy></PrivacyPolicy>} />
+          <Route path="termsOfUse" element={<TermsOfUse></TermsOfUse>} />        
+          <Route path="sponsors" element={<Sponsors></Sponsors>} />        
+          <Route path="about" element={<About></About>} />
+          <Route path="contact" element={<Contact></Contact>} />
+          
            {/*  <Route path="//" element={<Posts></Posts>} />
             <Route path="//posts" element={<Posts></Posts>} />           
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
             <Route path="/teams" element={<Teams></Teams>} />   
             <Route path="/about" element={<About> </About>} />
-            <Route path="/Contact" element={<Contact></Contact>} />
-
-          
-        
+            <Route path="/Contact" element={<Contact></Contact>} />      
             <Route path="/dashboard" element={<PrivateRoute>  <Dashboard> </Dashboard> </PrivateRoute> } >
 
                 <Route path="/dashboard/addPost" element={<PrivateRoute><AddPost></AddPost></PrivateRoute> } />

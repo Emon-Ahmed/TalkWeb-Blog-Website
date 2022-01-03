@@ -3,9 +3,10 @@ import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Product.css';
 
-const Product = (props) => {
+const Product = ({product}) => {
+
     /* props.course destructring */
-    const {_id ,teacherName, courseName, picture, courseFee} = props?.product || {}
+    const {_id, name, picture, company, price} = product || '';
 
     return (
      
@@ -15,38 +16,26 @@ const Product = (props) => {
 
         <Card className="card-style">
 
-            {/*extra course image use dynamic */}
+            {/*products image use dynamic */}
             <div className=" d-flex align-items-center justify-content-center ">
             <Card.Img className="card-img-style" variant="top" src={picture} />
             </div>
 
-            {/*extra course name use dynamic */}
-            <Card.Body className="card-body-style">
-            <Card.Title><h2>{courseName}</h2></Card.Title>
-            
+            {/*products name */}
+            <Card.Title><h3 className="text-primary"> Name : {name}</h3></Card.Title>
 
-            {/*extra course fee use dynamic */}
-            <h4> 
-            <Card.Text>
-            <b>Course fee:</b> {courseFee} 
-            </Card.Text>
-            </h4>
+            {/*products brand */}
+            <Card.Title><h3 className="text-danger">Brand: {company} </h3></Card.Title>
 
-            {/*extra course teacher name use dynamic */}
-            <h4> 
-            <Card.Text>
-            <b>Teacher Name:</b> {teacherName}
-            </Card.Text>
-            </h4>
+            {/*products Fees */}
+            <Card.Title><h3 className="text-primary">Price:   ${price}</h3></Card.Title>
 
-                        
-
+       
             {/* button use dynamic */}
-             <Link to={`purchase/${_id}`}>
+             <Link to={`/purchase/${_id}`}>
             <button className="btn btn-danger">Buy Now</button>
             </Link>
             
-            </Card.Body>
             </Card>
             
             </Col>
