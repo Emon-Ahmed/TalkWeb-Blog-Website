@@ -23,8 +23,7 @@ const MakeAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {
-                   if(data.modifiedCount) {
-                    
+                   if(data.modifiedCount) {              
                        setSuccess(true);                   
                    }
                 })
