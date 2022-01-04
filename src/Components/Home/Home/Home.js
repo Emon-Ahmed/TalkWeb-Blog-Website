@@ -10,10 +10,7 @@ const Home = () => {
   return (
     <div>
       <Posts></Posts>
-      <Faq></Faq>
-      <PrivacyPolicy></PrivacyPolicy>
-      <TermsOfUse></TermsOfUse>
-      <Contact></Contact>
+      
     </div>
   );
 };
