@@ -1,15 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginInitiate } from "../../../Redux/Action";
 
 export const Singin = () => {
-    const [state, setState] = useState({
-        email: "",
-        password: ""
-    })
-    const {email, password} = state;
-    const handleLogin = () => {
+  const [state, setState] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = state;
+  const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user.currentUser) {
+      navigate("/");
     }
-    const handleChange = () => {
+  }, [user, navigate]);
+  const dispatch = useDispatch();
+  const handleLogin = () => {
+    if (!email || !password) {
+      return;
     }
+    dispatch(loginInitiate(email, password));
+    setState({ email: "", password: "" });
+  };
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
   return (
     <div>
       <div className="container d-flex my-5 py-5">

@@ -4,32 +4,23 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { registerInitiate } from "../../../Redux/Action";
 
-
 export const Singup = () => {
   const [state, setState] = useState({
     email: "",
     password: "",
-    password: "",
-    passwordConfirm: "",
   });
-  const { currentUser } = useSelector((state) => state.user);
-
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
-
   useEffect(() => {
-    if (currentUser) {
-      navigate.push("-1");
+    if (user.currentUser) {
+      navigate("/");
     }
-  }, [currentUser, navigate]);
-
+  }, [user, navigate]);
   const dispatch = useDispatch();
-  const { email, password, displayName, passwordConfirm } = state;
+  const { email, password } = state;
   const handleRegister = () => {
-    if (password !== passwordConfirm) {
-      return;
-    }
-    dispatch(registerInitiate(email, password, displayName));
-    setState({ email: "", displayName: "", passwordConfirm: "" });
+    dispatch(registerInitiate(email, password));
+    setState({ email: "" });
   };
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -38,21 +29,9 @@ export const Singup = () => {
   return (
     <div>
       <div className="container d-flex my-5 py-5 text-center mx-auto">
-        <div className="w-75 mx-2">
+        <div className="w-100 mx-2">
           <h1>Register</h1>
           <div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="floatingInput"
-                placeholder="name@example.com"
-                name="email"
-                value={displayName}
-                onChange={handleChange}
-              />
-              <label htmlFor="floatingInput">Email address</label>
-            </div>
             <div className="form-floating mb-3">
               <input
                 type="email"
@@ -73,18 +52,6 @@ export const Singup = () => {
                 placeholder="Password"
                 name="password"
                 value={password}
-                onChange={handleChange}
-              />
-              <label htmlFor="floatingPassword">Password</label>
-            </div>
-            <div className="form-floating">
-              <input
-                type="password"
-                className="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-                name="password"
-                value={passwordConfirm}
                 onChange={handleChange}
               />
               <label htmlFor="floatingPassword">Password</label>

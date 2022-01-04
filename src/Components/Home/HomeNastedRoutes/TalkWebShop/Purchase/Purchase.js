@@ -25,7 +25,6 @@ const Purchase = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/products/${purchaseId}`)
           .then(res => res.json())
-        
           .then(data => setPurchase(data));
       }, [purchaseId]); 
 
