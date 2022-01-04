@@ -19,6 +19,9 @@ import PrivacyPolicy from './Components/Home/PrivacyPolicy/PrivacyPolicy';
 import Faq from './Components/Home/Faq/Faq';
 import About from './Components/Home/AboutAndContact/About/About';
 import Contact from './Components/Home/AboutAndContact/Contact/Contact';
+import { Singup } from './Components/Home/Account/Singup';
+import { Singin } from './Components/Home/Account/Singin';
+
 
 function App() {
   return (
@@ -27,6 +30,8 @@ function App() {
        <BrowserRouter>
           <Navigation></Navigation>
           <Routes>
+          <Route path="/singup" element={<Singup/>} />
+          <Route path="/singin" element={<Singin/>} />
           <Route path="/" element={<Home> </Home>} />
           <Route path="home" element={<Home> </Home>} ></Route>
           <Route path="posts" element={<Posts></Posts>} > </Route>

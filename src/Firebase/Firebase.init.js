@@ -1,6 +1,6 @@
-import { initializeApp, firebase } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import firebaseConfig from "./Firebase.config";
-
+import { getAuth } from "firebase/auth";
 
 const initializeAuth = () => {
   initializeApp(firebaseConfig);
@@ -8,7 +8,6 @@ const initializeAuth = () => {
 
 export default initializeAuth;
 
-const auth = firebase.auth();
-const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const auth = getAuth();
 
-export {auth, googleAuthProvider}
+export {auth}
