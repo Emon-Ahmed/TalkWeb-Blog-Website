@@ -7,7 +7,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/posts`)
+    fetch(`https://pacific-escarpment-25603.herokuapp.com/posts`)
       .then((response) => response.json())
       .then((data) => setPosts(data));
   }, []);

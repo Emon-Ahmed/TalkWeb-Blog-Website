@@ -7,7 +7,7 @@ const AddPosts = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("http://localhost:5000/posts", data).then((res) => {
+    axios.post("https://pacific-escarpment-25603.herokuapp.com/posts", data).then((res) => {
       if (res.data.insertedId) {
         alert("added successfully");
         reset();

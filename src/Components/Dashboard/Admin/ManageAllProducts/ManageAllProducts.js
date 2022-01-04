@@ -5,7 +5,7 @@ const ManageAllProducts = () => {
   const [manageProducts, setManageProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products`)
+    fetch(`https://pacific-escarpment-25603.herokuapp.com/products`)
       .then((response) => response.json())
       .then((data) => setManageProducts(data));
   }, []);
@@ -13,7 +13,7 @@ const ManageAllProducts = () => {
   const handleManageOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/products/${id}`, {
+      fetch(`https://pacific-escarpment-25603.herokuapp.com/products/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -29,7 +29,7 @@ const ManageAllProducts = () => {
 
   return (
     <div className="container">
-      <h1>Total Products {manageProducts.length}</h1>
+      <h3>Total Products {manageProducts.length}</h3>
       <Row>
         {manageProducts.map((manageProduct) => (
           <Col

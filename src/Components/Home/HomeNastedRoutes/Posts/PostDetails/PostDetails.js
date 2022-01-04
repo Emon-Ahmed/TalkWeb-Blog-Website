@@ -6,7 +6,7 @@ const PostDetails = () => {
 
     const {postId} = useParams()
     useEffect(() => {
-        fetch(`http://localhost:5000/posts/${postId}`)
+        fetch(`https://pacific-escarpment-25603.herokuapp.com/posts/${postId}`)
         .then(response => response.json())
         .then(data => setPosts(data[0]))
     }, [])

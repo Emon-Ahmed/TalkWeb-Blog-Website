@@ -17,7 +17,7 @@ const Purchase = () => {
   const [purchase, setPurchase] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${productId}`)
+    fetch(`https://pacific-escarpment-25603.herokuapp.com/products/${productId}`)
       .then((res) => res.json())
       .then((data) => setPurchase(data[0]));
   }, [productId]);
@@ -36,7 +36,7 @@ const Purchase = () => {
       productId,
       orderName: purchase.name,
     };
-    fetch("http://localhost:5000/orders", {
+    fetch("https://pacific-escarpment-25603.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

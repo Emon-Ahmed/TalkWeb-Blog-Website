@@ -6,14 +6,14 @@ const ManageAllOrders = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    const url = `http://localhost:5000/orders`;
+    const url = `https://pacific-escarpment-25603.herokuapp.com/orders`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setManageAllOrders(data));
   }, []);
 
   const handleStatus = (id) => {
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://pacific-escarpment-25603.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -31,7 +31,7 @@ const ManageAllOrders = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to Delete Order?");
     if (proceed) {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`https://pacific-escarpment-25603.herokuapp.com/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

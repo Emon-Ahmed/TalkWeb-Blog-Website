@@ -5,7 +5,7 @@ const ManageAllPostsByAdmin = () => {
   const [managePosts, setManagePosts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/posts`)
+    fetch(`https://pacific-escarpment-25603.herokuapp.com/posts`)
       .then((response) => response.json())
       .then((data) => setManagePosts(data));
   }, []);
@@ -13,7 +13,7 @@ const ManageAllPostsByAdmin = () => {
   const handleManageOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/posts/${id}`, {
+      fetch(`https://pacific-escarpment-25603.herokuapp.com/posts/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
