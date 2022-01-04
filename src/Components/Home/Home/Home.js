@@ -52,7 +52,7 @@ const Home = () => {
                 </NavLink>
               </p>
               <p>
-                <NavLink className="link-style" to="/posts">
+                <NavLink className="link-style" to="/faq">
                   <span className="icon-size">
                     <FcIdea />
                   </span>{" "}
