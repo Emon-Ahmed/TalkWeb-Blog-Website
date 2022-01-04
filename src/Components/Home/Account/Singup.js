@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerInitiate } from "../../../Redux/Action";
 
 export const Singup = () => {
@@ -28,9 +28,9 @@ export const Singup = () => {
   };
   return (
     <div>
-      <div className="container d-flex my-5 py-5 text-center mx-auto">
+      <div className="container d-flex my-5 py-5">
         <div className="w-100 mx-2">
-          <h1>Register</h1>
+          <h1 className="pb-2">Register</h1>
           <div>
             <div className="form-floating mb-3">
               <input
@@ -63,6 +63,14 @@ export const Singup = () => {
             >
               Register
             </button>
+            <Link to="/signin">
+              <button
+                type="button"
+                className="btn btn-outline-dark my-2 py-2 px-4 mx-2"
+              >
+                Login
+              </button>
+            </Link>
           </div>
         </div>
       </div>

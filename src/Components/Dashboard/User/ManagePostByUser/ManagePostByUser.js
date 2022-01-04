@@ -1,5 +1,4 @@
 import React from 'react';
-import './ManagePostByUser.css';
 
 const ManagePostByUser = () => {
     return (

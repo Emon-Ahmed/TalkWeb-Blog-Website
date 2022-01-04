@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginInitiate } from "../../../Redux/Action";
 
 export const Singin = () => {
@@ -64,12 +64,14 @@ export const Singin = () => {
             >
               Login
             </button>
-            <button
-              type="button"
-              className="btn btn-outline-dark active my-2 py-2 px-4 mx-2"
-            >
-              Google
-            </button>
+            <Link to="/signup">
+              <button
+                type="button"
+                className="btn btn-outline-dark my-2 py-2 px-4 mx-2"
+              >
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
       </div>

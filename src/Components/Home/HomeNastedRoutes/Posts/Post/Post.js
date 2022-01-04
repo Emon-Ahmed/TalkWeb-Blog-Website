@@ -1,27 +1,25 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./Post.css";
+
+import { FcAdvance } from "react-icons/fc";
+
 
 const Post = (props) => {
-  /* props.post destructring */
-  const { _id, name } = props?.post || {};
+  const { _id, name, posts } = props?.post || {};
 
   return (
     <Col>
-      {/* card section using react bootstrap */}
-
       <Card className="card-style">
         <Link to={`/posts/${_id}`}>
           <Card.Body className="card-body-style">
             <Card.Title>
-              <h2>{name}</h2>
+              <h2 className="text">{name.slice(0,80)}</h2>
             </Card.Title>
-
-            {/* button use dynamic */}
-            {/*  <Link to={`/extraCourseDetails/${_id}`}>
-            <button className="btn btn-danger">Join Now</button>
-          </Link> */}
+            <Card.Text>
+              <p className="text">{posts.slice(0,240)} <span className="fw-bold text-black"> {" "}
+              <FcAdvance /> Read More</span></p>
+            </Card.Text>
           </Card.Body>
         </Link>
       </Card>

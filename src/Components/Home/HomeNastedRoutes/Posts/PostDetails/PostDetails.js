@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import './PostDetails.css';
 
 const PostDetails = () => {
     const [posts, setPosts] = useState([]);
 
     const {postId} = useParams()
-    // useEffect use and fatch call api
     useEffect(() => {
         fetch(`http://localhost:5000/posts/${postId}`)
         .then(response => response.json())

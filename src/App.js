@@ -12,9 +12,6 @@ import ManageAllProducts from "./Components/Dashboard/Admin/ManageAllProducts/Ma
 import ManageAllPostsByAdmin from "./Components/Dashboard/Admin/ManageAllPostsByAdmin/ManageAllPostsByAdmin";
 import Purchase from "./Components/Home/HomeNastedRoutes/TalkWebShop/Purchase/Purchase";
 import ManageAllOrders from "./Components/Dashboard/Admin/ManageAllOrders/ManageAllOrders";
-import Sponsors from "./Components/Home/Sponsors/Sponsors";
-import TermsOfUse from "./Components/Home/TermsOfUse/TermsOfUse";
-import PrivacyPolicy from "./Components/Home/PrivacyPolicy/PrivacyPolicy";
 import Faq from "./Components/Home/Faq/Faq";
 import About from "./Components/Home/AboutAndContact/About/About";
 import Contact from "./Components/Home/AboutAndContact/Contact/Contact";
@@ -26,6 +23,9 @@ import { auth } from "./firebase";
 import { setUser } from "./Redux/Action";
 import PostDetails from "./Components/Home/HomeNastedRoutes/Posts/PostDetails/PostDetails";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import AllPost from "./Components/Home/HomeNastedRoutes/Posts/AllPost"
+import Dashboard from "./Components/Dashboard/Dashboard";
+import HelloDashboard from "./Components/Dashboard/HelloDashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,25 +43,35 @@ function App() {
       <BrowserRouter>
         <Navigation></Navigation>
         <Routes>
-          <Route path="/" element={<Home> </Home>} />
-          <Route path="posts" element={<Posts></Posts>}/>
-          <Route path="posts/:postId" element={<PrivateRoute> <PostDetails /> </PrivateRoute>}/>
-          <Route path="addPost" element={<PrivateRoute><AddPosts /></PrivateRoute>} />
-          <Route path="products" element={<Products></Products>} />
-          <Route path="products/:productId" element={<PrivateRoute><Purchase /></PrivateRoute>} />
-          <Route path="addproduct" element={<PrivateRoute><AddProduct /></PrivateRoute>} />
-          <Route path="manageProducts"element={<PrivateRoute><ManageAllProducts /></PrivateRoute>} />
-          <Route path="managePosts" element={<PrivateRoute><ManageAllPostsByAdmin /></PrivateRoute>}/>
-          <Route path="manageAllOrders" element={<PrivateRoute><ManageAllOrders /></PrivateRoute>}/>
-          <Route path="faq" element={<Faq></Faq>} />
-          <Route path="privacyPolicy" element={<PrivacyPolicy></PrivacyPolicy>}/>
-          <Route path="termsOfUse" element={<TermsOfUse></TermsOfUse>} />
-          <Route path="sponsors" element={<Sponsors></Sponsors>} />
-          <Route path="about" element={<About></About>} />
-          <Route path="contact" element={<Contact></Contact>} />
-          <Route path="/signup" element={<Singup />} />
-          <Route path="/signin" element={<Singin />} />
-          <Route path="*" element={<NotFound></NotFound>} />
+          <Route path="/" element={<Home> </Home>} >
+            <Route index element={<AllPost></AllPost>}/>
+            <Route path="posts" element={<Posts></Posts>}/>
+            <Route path="posts/:postId" element={<PrivateRoute> <PostDetails /> </PrivateRoute>}/>
+            <Route path="products" element={<Products></Products>} />
+            <Route path="products/:productId" element={<PrivateRoute><Purchase /></PrivateRoute>} />
+            <Route path="faq" element={<Faq></Faq>} />
+            <Route path="about" element={<About></About>} />
+            <Route path="contact" element={<Contact></Contact>} />
+            <Route path="/signup" element={<Singup />} />
+            <Route path="/signin" element={<Singin />} />
+            <Route path="*" element={<NotFound></NotFound>} />
+          </Route>
+          <Route path="dashboard" element={<Dashboard />} >
+            <Route index element={<PrivateRoute><HelloDashboard /></PrivateRoute>} />
+            <Route path="addpost" element={<PrivateRoute><AddPosts /></PrivateRoute>} />
+            <Route path="addproduct" element={<PrivateRoute><AddProduct /></PrivateRoute>} />
+            <Route path="manageProducts"element={<PrivateRoute><ManageAllProducts /></PrivateRoute>} />
+            <Route path="managePosts" element={<PrivateRoute><ManageAllPostsByAdmin /></PrivateRoute>}/>
+            <Route path="manageAllOrders" element={<PrivateRoute><ManageAllOrders /></PrivateRoute>}/>
+          </Route>
+          {/* <Route path="dashboard/addPost" element={<PrivateRoute><AddPosts /></PrivateRoute>} /> */}
+          <Route path="/home" element={<Home> </Home>} />
+         
+          
+          
+
+
+
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
