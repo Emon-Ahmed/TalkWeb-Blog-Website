@@ -24,6 +24,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { auth } from "./firebase";
 import { setUser } from "./Redux/Action";
+import PostDetails from "./Components/Home/HomeNastedRoutes/Posts/PostDetails/PostDetails";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,17 +43,15 @@ function App() {
       <BrowserRouter>
         <Navigation></Navigation>
         <Routes>
-          <Route path="/singup" element={<Singup />} />
-          <Route path="/singin" element={<Singin />} />
           <Route path="/" element={<Home> </Home>} />
-          <Route path="home" element={<Home> </Home>}></Route>
-          <Route path="posts" element={<Posts></Posts>}></Route>
+          <Route path="posts" element={<Posts></Posts>}/>
+          <Route path="posts/:postId" element={<PrivateRoute> <PostDetails /> </PrivateRoute>}/>
           <Route path="addPost" element={<AddPosts></AddPosts>} />
           <Route path="products" element={<Products></Products>} />
+            <Route path="products/:productId" element={<Purchase></Purchase>} />
           <Route path="addproduct" element={<AddProduct></AddProduct>} />
           <Route path="manageProducts"element={<ManageAllProducts></ManageAllProducts>} />
           <Route path="managePosts" element={<ManageAllPostsByAdmin></ManageAllPostsByAdmin>}/>
-          <Route path="purchase/:purchaseId" element={<Purchase></Purchase>} />
           <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}/>
           <Route path="faq" element={<Faq></Faq>} />
           <Route path="privacyPolicy" element={<PrivacyPolicy></PrivacyPolicy>}/>
@@ -59,6 +59,8 @@ function App() {
           <Route path="sponsors" element={<Sponsors></Sponsors>} />
           <Route path="about" element={<About></About>} />
           <Route path="contact" element={<Contact></Contact>} />
+          <Route path="/signup" element={<Singup />} />
+          <Route path="/signin" element={<Singin />} />
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
         <Footer></Footer>

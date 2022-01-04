@@ -5,7 +5,7 @@ import './Purchase.css';
 
 const Purchase = () => {
     
-    const { purchaseId } = useParams();
+    const { productId } = useParams();
 
     // initial state declare
     // const initialInfo = {userName: user.displayName, email: user.email, phone: '', address: '', status : 'Pending'}
@@ -23,10 +23,10 @@ const Purchase = () => {
 
    // load data
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${purchaseId}`)
+        fetch(`http://localhost:5000/products/${productId}`)
           .then(res => res.json())
-          .then(data => setPurchase(data));
-      }, [purchaseId]); 
+          .then(data => setPurchase(data[0]));
+      }, [productId]); 
 
 
   // handle on Blur 
@@ -51,7 +51,7 @@ const Purchase = () => {
         // collect data
         const order = {
           ...orderInfo,
-          purchaseId,
+          productId,
           orderName: purchase.name,
       }
         
@@ -80,7 +80,7 @@ const Purchase = () => {
  
     return (
         <div className='container'>
-            <h2 className="text-center text-info p-5"> Order Id:  {purchaseId}</h2>
+            <h2 className="text-center text-info p-5"> Order Id:  {productId}</h2>
 
 
                 <div className="container mb-5">
@@ -128,7 +128,7 @@ const Purchase = () => {
            
            <Form style={{width: "85%", marginTop: '20px', marginBottom : "20px"}}  onSubmit={handlePurchase}>
           
-           <Form.Control  onBlur={handleOnBlur} className="mb-3" disabled defaultValue={purchaseId} type="text"  />
+           <Form.Control  onBlur={handleOnBlur} className="mb-3" disabled defaultValue={productId} type="text"  />
               
                <FloatingLabel
                 onBlur={handleOnBlur}

@@ -32,7 +32,7 @@ const Product = ({product}) => {
 
        
             {/* button use dynamic */}
-             <Link to={`/purchase/${_id}`}>
+             <Link to={`/products/${_id}`}>
             <button className="btn btn-danger">Buy Now</button>
             </Link>
             

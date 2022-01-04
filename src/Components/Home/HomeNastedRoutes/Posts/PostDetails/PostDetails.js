@@ -1,20 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import './PostDetails.css';
 
 const PostDetails = () => {
     const [posts, setPosts] = useState([]);
 
-
+    const {postId} = useParams()
     // useEffect use and fatch call api
     useEffect(() => {
-        fetch(`http://localhost:5000/posts`)
+        fetch(`http://localhost:5000/posts/${postId}`)
         .then(response => response.json())
-        .then(data => setPosts(data))
+        .then(data => setPosts(data[0]))
     }, [])
+   
     return (
         <div>
-            <h1>PostDetails</h1>
-            
+            <h1>{postId}</h1>
         </div>
     );
 };

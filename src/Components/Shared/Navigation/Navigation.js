@@ -11,7 +11,7 @@ const Navigation = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleSingOut = () => {
-    if (user) {
+    if (user.currentUser?.email) {
       dispatch(logoutInitiate());
     }
   };
@@ -33,7 +33,7 @@ const Navigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav variant="pills">
-              <Nav.Link as={Link} to="/home">
+              <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
               <Nav.Link as={Link} to="/posts">
@@ -43,8 +43,8 @@ const Navigation = () => {
                 Shop
               </Nav.Link>
 
-              <Nav.Link>Log in</Nav.Link>
-              <Nav.Link>Create Account</Nav.Link>
+              <Nav.Link as={Link} to="/signin">Log in</Nav.Link>
+              <Nav.Link as={Link} to="/signup">Create Account</Nav.Link>
               <NavDropdown title="Display Name" id="collasible-nav-dropdown">
                 <NavDropdown.Item>display name and email</NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -54,12 +54,12 @@ const Navigation = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item>Setting</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {user.email ? (
+                {user.currentUser?.email ? (
                   <NavDropdown.Item onClick={handleSingOut}>
                     Log Out
                   </NavDropdown.Item>
                 ) : (
-                  <NavDropdown.Item>Log In</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/signin">Log In</NavDropdown.Item>
                 )}
               </NavDropdown>
             </Nav>
