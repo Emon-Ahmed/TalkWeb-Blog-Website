@@ -46,13 +46,13 @@ function App() {
           <Route path="/" element={<Home> </Home>} />
           <Route path="posts" element={<Posts></Posts>}/>
           <Route path="posts/:postId" element={<PrivateRoute> <PostDetails /> </PrivateRoute>}/>
-          <Route path="addPost" element={<AddPosts></AddPosts>} />
+          <Route path="addPost" element={<PrivateRoute><AddPosts /></PrivateRoute>} />
           <Route path="products" element={<Products></Products>} />
-            <Route path="products/:productId" element={<Purchase></Purchase>} />
-          <Route path="addproduct" element={<AddProduct></AddProduct>} />
-          <Route path="manageProducts"element={<ManageAllProducts></ManageAllProducts>} />
-          <Route path="managePosts" element={<ManageAllPostsByAdmin></ManageAllPostsByAdmin>}/>
-          <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}/>
+          <Route path="products/:productId" element={<PrivateRoute><Purchase /></PrivateRoute>} />
+          <Route path="addproduct" element={<PrivateRoute><AddProduct /></PrivateRoute>} />
+          <Route path="manageProducts"element={<PrivateRoute><ManageAllProducts /></PrivateRoute>} />
+          <Route path="managePosts" element={<PrivateRoute><ManageAllPostsByAdmin /></PrivateRoute>}/>
+          <Route path="manageAllOrders" element={<PrivateRoute><ManageAllOrders /></PrivateRoute>}/>
           <Route path="faq" element={<Faq></Faq>} />
           <Route path="privacyPolicy" element={<PrivacyPolicy></PrivacyPolicy>}/>
           <Route path="termsOfUse" element={<TermsOfUse></TermsOfUse>} />
@@ -61,7 +61,7 @@ function App() {
           <Route path="contact" element={<Contact></Contact>} />
           <Route path="/signup" element={<Singup />} />
           <Route path="/signin" element={<Singin />} />
-          <Route path="*" element={<NotFound></NotFound>}></Route>
+          <Route path="*" element={<NotFound></NotFound>} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
