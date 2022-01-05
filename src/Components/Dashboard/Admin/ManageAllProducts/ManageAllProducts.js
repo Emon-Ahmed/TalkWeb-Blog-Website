@@ -39,7 +39,7 @@ const ManageAllProducts = () => {
             key={manageProduct._id}
             manageproduct={manageProduct}
           >
-            <Card className="card-style">
+            <Card className="card-style mb-3">
               {/* image use dynamic */}
               <Card.Img
                 className="card-img-style"
@@ -48,11 +48,11 @@ const ManageAllProducts = () => {
               />
 
               {/* name use dynamic */}
-              <Card.Body className="card-body-style">
+              <Card.Body className="card-body-style text-center">
                 <Card.Title>
-                  <h2>{manageProduct.name}</h2>
+                  <p className="text-primary text-black text-thin font-size">{manageProduct.name}</p>
                 </Card.Title>
-                <Card.Text>Price: ${manageProduct.price}</Card.Text>
+                <Card.Text> <p className="text-primary text-black price-font">${manageProduct.price}</p> </Card.Text>
                 <Button
                   onClick={() => handleManageOrder(manageProduct._id)}
                   variant="outline-danger"

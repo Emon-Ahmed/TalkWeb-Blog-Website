@@ -56,7 +56,6 @@ const ManageAllOrders = () => {
             <th>Order Id</th>
             <th>Name</th>
             <th>Email</th>
-            <th>phone</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -66,7 +65,6 @@ const ManageAllOrders = () => {
               <td>{row._id}</td>
               <td>{row.userName} </td>
               <td>{row.email} </td>
-              <td>{row.phone} </td>
               <td>
                 <button
                   className="btn btn-danger"

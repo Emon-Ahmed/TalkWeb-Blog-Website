@@ -46,9 +46,9 @@ const ManageAllPostsByAdmin = () => {
                 src={managePosts.picture}
               />
               <div className="p-3">
-                <h3 gutterBottom component="div">
+                <p className="text-primary text-black  font-size" gutterBottom component="div">
                   {managePosts.name}
-                </h3>
+                </p>
 
                 <Button
                   onClick={() => handleManageOrder(managePosts._id)}

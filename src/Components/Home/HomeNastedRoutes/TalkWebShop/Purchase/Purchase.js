@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Card, FloatingLabel, Form } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 
 const Purchase = () => {
+  const user = useSelector((state) => state.user);
   const { productId } = useParams();
   const initialInfo = {
     userName: "",
@@ -17,7 +19,9 @@ const Purchase = () => {
   const [purchase, setPurchase] = useState({});
 
   useEffect(() => {
-    fetch(`https://pacific-escarpment-25603.herokuapp.com/products/${productId}`)
+    fetch(
+      `https://pacific-escarpment-25603.herokuapp.com/products/${productId}`
+    )
       .then((res) => res.json())
       .then((data) => setPurchase(data[0]));
   }, [productId]);
@@ -54,38 +58,43 @@ const Purchase = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="text-center text-info p-5"> Order Id: {productId}</h2>
-      <div className="container mb-5">
-        <Card>
-          <div>
-            <Card.Img
-              className=" h-100 w-100 "
-              variant="top"
-              src={purchase?.picture}
-            />
+    <div>
+      <div className="mt-3 mb-4">
+        <div className="d-flex bg-white p-4">
+          <div className="w-50">
+            <Card.Img className="w-100" variant="top" src={purchase?.picture} />
           </div>
-          <Card.Body className="bg-light">
-            <Card.Title>
-              <h3 className="text-primary"> Name : {purchase?.name}</h3>
-            </Card.Title>
-            <Card.Title>
-              <h3 className="text-danger">Brand: {purchase?.company} </h3>
-            </Card.Title>
-            <Card.Title>
-              <h3 className="text-primary">Price: ${purchase?.price}</h3>
-            </Card.Title>
-            <Card.Title>
-              <h3 className="text-primary">{purchase?.about}</h3>
-            </Card.Title>
-          </Card.Body>
-        </Card>
+          <div className="w-50">
+            <Card.Body>
+              <Card.Title>
+                <p className="text-primary text-black text-thin font-size h1">
+                  {purchase?.name}
+                </p>
+              </Card.Title>
+              <Card.Title>
+                <p className="text-primary text-black price-font my-3">
+                  ${purchase?.price}
+                </p>
+              </Card.Title>
+              <Card.Title>
+                <p className="text-primary text-black text-thin font-size my-3">
+                  {purchase?.about}
+                </p>
+              </Card.Title>
+              <Card.Title>
+                <a href="#checkout" className="btn btn-outline-dark active py-2 px-4">
+                  Checkout
+                </a>
+              </Card.Title>
+            </Card.Body>
+          </div>
+        </div>
       </div>
 
-      {orderSuccess && <Alert severity="success">Order successfully!</Alert>}
+      {orderSuccess && <Alert severity="success">Order successfully! <Link to="/dashboard/manageAllOrders">Check</Link> </Alert>}
       <div>
-        <Card className="p-5">
-          <h4 className="ml-5">Product Name: {purchase.name}</h4>
+        <Card id="checkout" className="p-5">
+          <h3 className="ml-5">Checkout</h3>
 
           {/*---------- using form ---------- */}
 
@@ -93,23 +102,6 @@ const Purchase = () => {
             style={{ width: "85%", marginTop: "20px", marginBottom: "20px" }}
             onSubmit={handlePurchase}
           >
-            <Form.Control
-              onBlur={handleOnBlur}
-              className="mb-3"
-              disabled
-              defaultValue={productId}
-              type="text"
-            />
-
-            <FloatingLabel
-              onBlur={handleOnBlur}
-              controlId="floatingInput"
-              label="Email address"
-              className="mb-3"
-            >
-              <Form.Control name="email" type="email" />
-            </FloatingLabel>
-
             <FloatingLabel
               onBlur={handleOnBlur}
               className="mb-3"
@@ -121,11 +113,12 @@ const Purchase = () => {
 
             <FloatingLabel
               onBlur={handleOnBlur}
-              className="mb-3"
               controlId="floatingInput"
-              label="Mobile Number"
+              label="Email address"
+              className="mb-3"
+              defaultValue={user?.currentUser?.email}
             >
-              <Form.Control name="phone" type="number" />
+              <Form.Control name="email" type="email" />
             </FloatingLabel>
 
             <Form.Control
@@ -138,11 +131,19 @@ const Purchase = () => {
             />
 
             <Form.Control
+              onBlur={handleOnBlur}
+              className="mb-3"
+              disabled
+              defaultValue={purchase.name}
+              type="text"
+            />
+
+            <Form.Control
               name="productName"
               onBlur={handleOnBlur}
               className="mb-3"
               disabled
-              defaultValue={purchase?.name}
+              defaultValue={productId}
               type="text"
             />
 
@@ -155,7 +156,7 @@ const Purchase = () => {
               <Form.Control name="address" type="Text" />
             </FloatingLabel>
 
-            <Button type="submit" variant="secondary">
+            <Button type="submit" className="btn btn-outline-dark active py-2 px-4">
               Purchase
             </Button>
           </Form>

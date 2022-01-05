@@ -26,6 +26,7 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import AllPost from "./Components/Home/HomeNastedRoutes/Posts/AllPost"
 import Dashboard from "./Components/Dashboard/Dashboard";
 import HelloDashboard from "./Components/Dashboard/HelloDashboard";
+import Tags from "./Components/Home/Tag/Tags";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function App() {
             <Route path="contact" element={<Contact></Contact>} />
             <Route path="/signup" element={<Singup />} />
             <Route path="/signin" element={<Singin />} />
+            <Route path="/tags" element={<Tags />} />
             <Route path="*" element={<NotFound></NotFound>} />
           </Route>
           <Route path="dashboard" element={<Dashboard />} >

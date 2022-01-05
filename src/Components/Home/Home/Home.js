@@ -44,7 +44,7 @@ const Home = () => {
                 </NavLink>
               </p>
               <p>
-                <NavLink className="link-style" to="/posts">
+                <NavLink className="link-style" to="/tags">
                   <span className="icon-size">
                     <FcAddressBook />
                   </span>{" "}
