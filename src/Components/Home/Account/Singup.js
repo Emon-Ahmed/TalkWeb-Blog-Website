@@ -29,8 +29,8 @@ export const Singup = () => {
   return (
     <div>
       <div className="container d-flex my-5 py-5">
-        <div className="w-100 mx-2">
-          <h1 className="pb-2">Register</h1>
+        <div className="w-75 mx-2">
+          <h1>Sign Up</h1>
           <div>
             <div className="form-floating mb-3">
               <input
@@ -58,10 +58,10 @@ export const Singup = () => {
             </div>
             <button
               type="button"
-              className="btn btn-outline-dark active my-2 px-5 py-2"
+              className="btn btn-outline-dark active my-2 py-2 px-4"
               onClick={handleRegister}
             >
-              Register
+              Sign Up
             </button>
             <Link to="/signin">
               <button

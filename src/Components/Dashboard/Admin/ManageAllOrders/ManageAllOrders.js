@@ -49,8 +49,8 @@ const ManageAllOrders = () => {
     <div className="container">
       {success && <Alert severity="success">Make Admin Successfully</Alert>}
 
-      <h1>Total Orders: {manageAllOrders.length}</h1>
-      <Table striped bordered hover>
+      <h3 className="my-3">Total Orders: {manageAllOrders.length}</h3>
+      <Table striped bordered hover className="bg-white">
         <thead>
           <tr>
             <th>Order Id</th>
