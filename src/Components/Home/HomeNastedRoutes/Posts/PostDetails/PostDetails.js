@@ -6,7 +6,7 @@ const PostDetails = () => {
 
   const { postId } = useParams();
   useEffect(() => {
-    fetch(`https://pacific-escarpment-25603.herokuapp.com/posts/${postId}`)
+    fetch(`https://talkweb-blog-website-server.onrender.com/posts/${postId}`)
       .then((response) => response.json())
       .then((data) => setPosts(data[0]));
   }, []);

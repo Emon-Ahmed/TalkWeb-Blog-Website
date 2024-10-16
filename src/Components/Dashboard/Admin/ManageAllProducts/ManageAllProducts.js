@@ -5,7 +5,7 @@ const ManageAllProducts = () => {
   const [manageProducts, setManageProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pacific-escarpment-25603.herokuapp.com/products`)
+    fetch(`https://talkweb-blog-website-server.onrender.com/products`)
       .then((response) => response.json())
       .then((data) => setManageProducts(data));
   }, []);
@@ -13,7 +13,7 @@ const ManageAllProducts = () => {
   const handleManageOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      fetch(`https://pacific-escarpment-25603.herokuapp.com/products/${id}`, {
+      fetch(`https://talkweb-blog-website-server.onrender.com/products/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -50,9 +50,16 @@ const ManageAllProducts = () => {
               {/* name use dynamic */}
               <Card.Body className="card-body-style text-center">
                 <Card.Title>
-                  <p className="text-primary text-black text-thin font-size">{manageProduct.name}</p>
+                  <p className="text-primary text-black text-thin font-size">
+                    {manageProduct.name}
+                  </p>
                 </Card.Title>
-                <Card.Text> <p className="text-primary text-black price-font">${manageProduct.price}</p> </Card.Text>
+                <Card.Text>
+                  {" "}
+                  <p className="text-primary text-black price-font">
+                    ${manageProduct.price}
+                  </p>{" "}
+                </Card.Text>
                 <Button
                   onClick={() => handleManageOrder(manageProduct._id)}
                   variant="outline-danger"

@@ -6,7 +6,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pacific-escarpment-25603.herokuapp.com/products`)
+    fetch(`https://talkweb-blog-website-server.onrender.com/products`)
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);

@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Post from "../Post/Post";
 
-
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pacific-escarpment-25603.herokuapp.com/posts`)
+    fetch(`https://talkweb-blog-website-server.onrender.com/posts`)
       .then((response) => response.json())
       .then((data) => setPosts(data));
   }, []);
@@ -22,7 +21,7 @@ const Posts = () => {
         </Row>
       </Col>
     </div>
-    )
-}
+  );
+};
 
 export default Posts;

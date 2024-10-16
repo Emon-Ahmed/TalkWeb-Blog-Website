@@ -20,7 +20,7 @@ const Purchase = () => {
 
   useEffect(() => {
     fetch(
-      `https://pacific-escarpment-25603.herokuapp.com/products/${productId}`
+      `https://talkweb-blog-website-server.onrender.com/products/${productId}`
     )
       .then((res) => res.json())
       .then((data) => setPurchase(data[0]));
@@ -40,7 +40,7 @@ const Purchase = () => {
       productId,
       orderName: purchase.name,
     };
-    fetch("https://pacific-escarpment-25603.herokuapp.com/orders", {
+    fetch("https://talkweb-blog-website-server.onrender.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -82,7 +82,10 @@ const Purchase = () => {
                 </p>
               </Card.Title>
               <Card.Title>
-                <a href="#checkout" className="btn btn-outline-dark active py-2 px-4">
+                <a
+                  href="#checkout"
+                  className="btn btn-outline-dark active py-2 px-4"
+                >
                   Checkout
                 </a>
               </Card.Title>
@@ -91,7 +94,11 @@ const Purchase = () => {
         </div>
       </div>
 
-      {orderSuccess && <Alert severity="success">Order successfully! <Link to="/dashboard/manageAllOrders">Check</Link> </Alert>}
+      {orderSuccess && (
+        <Alert severity="success">
+          Order successfully! <Link to="/dashboard/manageAllOrders">Check</Link>{" "}
+        </Alert>
+      )}
       <div>
         <Card id="checkout" className="p-5">
           <h3 className="ml-5">Checkout</h3>
@@ -156,7 +163,10 @@ const Purchase = () => {
               <Form.Control name="address" type="Text" />
             </FloatingLabel>
 
-            <Button type="submit" className="btn btn-outline-dark active py-2 px-4">
+            <Button
+              type="submit"
+              className="btn btn-outline-dark active py-2 px-4"
+            >
               Purchase
             </Button>
           </Form>

@@ -5,7 +5,7 @@ const ManageAllPostsByAdmin = () => {
   const [managePosts, setManagePosts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pacific-escarpment-25603.herokuapp.com/posts`)
+    fetch(`https://talkweb-blog-website-server.onrender.com/posts`)
       .then((response) => response.json())
       .then((data) => setManagePosts(data));
   }, []);
@@ -13,7 +13,7 @@ const ManageAllPostsByAdmin = () => {
   const handleManageOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      fetch(`https://pacific-escarpment-25603.herokuapp.com/posts/${id}`, {
+      fetch(`https://talkweb-blog-website-server.onrender.com/posts/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -46,7 +46,11 @@ const ManageAllPostsByAdmin = () => {
                 src={managePosts.picture}
               />
               <div className="p-3">
-                <p className="text-primary text-black  font-size" gutterBottom component="div">
+                <p
+                  className="text-primary text-black  font-size"
+                  gutterBottom
+                  component="div"
+                >
                   {managePosts.name}
                 </p>
 

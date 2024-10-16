@@ -7,12 +7,14 @@ const AddPosts = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("https://pacific-escarpment-25603.herokuapp.com/posts", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("added successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://talkweb-blog-website-server.onrender.com/posts", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("added successfully");
+          reset();
+        }
+      });
   };
   return (
     <div className="container add-post">
@@ -48,7 +50,10 @@ const AddPosts = () => {
           />
           <label for="floatingPassword">Write Your Post</label>
         </div>
-        <input class="btn btn-outline-dark active my-2 py-2 px-4" type="submit" />
+        <input
+          class="btn btn-outline-dark active my-2 py-2 px-4"
+          type="submit"
+        />
       </form>
     </div>
   );
